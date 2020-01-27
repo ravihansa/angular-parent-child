@@ -1,0 +1,14 @@
+<div class="text-center">
+    <h2 class="jumbotron">Parent Component</h2>
+</div>
+<div class="row"> 
+    <button type="button" class="btn btn-primary" (click)="sendData()">Send</button>
+    <button type="button" class="btn btn-secondary" (click)="resetData()">Reset</button>
+</div>
+<div class="row">    
+    <div class="col">
+      <app-child [childMessage1]="childMessage1" [childMessage2]="childMessage2"></app-child>
+    </div>
+</div>
+  
+  
