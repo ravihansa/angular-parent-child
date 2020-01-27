@@ -9,6 +9,9 @@ export class ParentComponent implements OnInit {
 
   childMessage1: String;
   childMessage2: String;
+
+  parentMessage1: String;
+
   constructor() { }
 
   ngOnInit() {
@@ -23,4 +26,9 @@ export class ParentComponent implements OnInit {
     this.childMessage1 =  '';
     this.childMessage2 =  '';
   }
+
+  childMessageHandler(msg: any) {
+    this.parentMessage1 = msg[0] +' '+ msg [1];
+  }
+
 }

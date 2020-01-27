@@ -1,5 +1,6 @@
 <div class="text-center">
     <h2 class="jumbotron">Parent Component</h2>
+    <h6 *ngIf="parentMessage1" class="text-center alert alert-danger" role="alert">{{parentMessage1}}</h6>     
 </div>
 <div class="row"> 
     <button type="button" class="btn btn-primary" (click)="sendData()">Send</button>
@@ -7,7 +8,7 @@
 </div>
 <div class="row">    
     <div class="col">
-      <app-child [childMessage1]="childMessage1" [childMessage2]="childMessage2"></app-child>
+      <app-child [childMessage1]="childMessage1" [childMessage2]="childMessage2" (messageEvent)="childMessageHandler($event)"></app-child>
     </div>
 </div>
   
