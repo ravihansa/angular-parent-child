@@ -1,11 +1,15 @@
 <div class="text-center">
     <h2 class="jumbotron">Parent Component</h2>
-    <h6 *ngIf="parentMessage1" class="text-center alert alert-danger" role="alert">{{parentMessage1}}</h6>     
+    <h6 *ngIf="parentMessage1" class="text-center alert alert-danger" role="alert">{{parentMessage1}}</h6>
+    <h6 *ngIf="message" class="text-center alert alert-danger" role="alert">{{message}}</h6>         
 </div>
-<div class="row"> 
-    <button type="button" class="btn btn-primary" (click)="sendData()">Send</button>
-    <button type="button" class="btn btn-secondary" (click)="resetData()">Reset</button>
-</div>
+<button type="button" class="btn btn-primary" (click)="sendData()">Send</button>
+<button type="button" class="btn btn-secondary" (click)="resetData()">Reset</button>
+<input type="text" name="childMessage1" [(ngModel)]="childMessage1" placeholder="Input Message 1..."> 
+<input type="text" name="childMessage2" [(ngModel)]="childMessage2" placeholder="Input Message 2..."> 
+<input type="text" name="parentSiblingMsg" [(ngModel)]="this.data.parentSiblingMsg" placeholder="Input Sibling Message...">    
+<br>
+<hr>
 <div class="row">    
     <div class="col">
       <app-child [childMessage1]="childMessage1" [childMessage2]="childMessage2" (messageEvent)="childMessageHandler($event)"></app-child>

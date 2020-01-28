@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-child',
@@ -13,7 +14,8 @@ export class ChildComponent implements OnInit {
 
   @Output() messageEvent: EventEmitter<any> = new EventEmitter();
 
-  messages: string[] = ['Hi', 'Parent', 'HowAreYou'];
+  // messages: string[] = ['Hi', 'Parent', 'HowAreYou'];
+  parentMsg: string; //to parent
 
   constructor() { }
 
@@ -21,11 +23,13 @@ export class ChildComponent implements OnInit {
   }
 
   sendData(){
-    this.messageEvent.emit(this.messages);
+    this.messageEvent.emit(this.parentMsg);
   }
 
   resetData(){
-    this.messageEvent.emit(['','','']);
+    // this.messageEvent.emit(['','','']);
+    this.messageEvent.emit('');
+    this.parentMsg = '';
   }
 
 }

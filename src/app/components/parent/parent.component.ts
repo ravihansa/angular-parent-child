@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../services/data.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-parent',
@@ -7,14 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ParentComponent implements OnInit {
 
-  childMessage1: String;
-  childMessage2: String;
+  childMessage1: String; //to child
+  childMessage2: String; //to child
 
-  parentMessage1: String;
+  parentMessage1: String; //from child
 
-  constructor() { }
+  message:string; //from sibling
+
+  constructor(private data: DataService) { }
 
   ngOnInit() {
+    this.data.currentMessage.subscribe(message => this.message = message)
   }
 
   sendData(){
@@ -28,7 +33,8 @@ export class ParentComponent implements OnInit {
   }
 
   childMessageHandler(msg: any) {
-    this.parentMessage1 = msg[0] +' '+ msg [1];
+    // this.parentMessage1 = msg[0] +' '+ msg [1];
+    this.parentMessage1 = msg;
   }
 
 }
