@@ -15,13 +15,15 @@ export class ChildComponent implements OnInit {
   @Output() messageEvent: EventEmitter<any> = new EventEmitter();
 
   // messages: string[] = ['Hi', 'Parent', 'HowAreYou'];
-  parentMsg: string; //to parent
-
+  parentMsg: string; //to parent @Output
+  message= 'Hi Parent, I came across @ViewChild'; // to parent @ViewChild
+  
   constructor() { }
 
   ngOnInit() {
   }
 
+  
   sendData(){
     this.messageEvent.emit(this.parentMsg);
   }
