@@ -26,8 +26,4 @@ export class SiblingComponent implements OnInit {
     this.message =  '';
   }
 
-  changeData(){
-    this.data.messageSource.next(this.message);
-  }
-
 }

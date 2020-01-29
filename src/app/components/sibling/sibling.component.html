@@ -1,10 +1,10 @@
 <div class="text-center">
     <h2 class="jumbotron">Sibling Component</h2>
-    <h6 *ngIf="message" class="text-center alert alert-danger" role="alert">{{message}}</h6>  
+    <h6 *ngIf="message" class="text-center alert alert-dark" role="alert">{{message}}</h6>  
 </div>
 <button type="button" class="btn btn-primary" (click)="newMessage()">Send</button>
 <button type="button" class="btn btn-secondary" (click)="resetData()">Reset</button>
-<input type="text" name="message" [(ngModel)]="message" (change)="changeData()" placeholder="Input Message...">
+<input type="text" name="message" [(ngModel)]="message" (ngModelChange)="newMessage()" placeholder="Input Message...">
 <input type="text" name="parentSiblingMsg" [(ngModel)]="this.data.parentSiblingMsg" placeholder="Input Parent Message...">
 <br>
 <br>
